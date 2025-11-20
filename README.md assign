@@ -1,0 +1,68 @@
+#Product API – Express.js CRUD Application
+
+Week 2 Assignment – Server-Side Development (Express.js)
+
+## 📌 Overview
+This project is a RESTful API built using Express.js. It provides full CRUD operations for a `products` resource and includes request logging middleware, validation for creating/updating products, global error handling, and optional advanced features like filtering, pagination, search, and stats. The API uses an in-memory array, not a database, as required for this assignment.
+
+## 🚀 Features
+
+### CRUD Operations
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/products` | List all products (supports filtering & pagination) |
+| GET | `/api/products/:id` | Get a single product by ID |
+| POST | `/api/products` | Create a new product |
+| PUT | `/api/products/:id` | Update a product |
+| DELETE | `/api/products/:id` | Delete a product |
+
+### Advanced Features
+- Filter by category → `/api/products?category=kitchen`
+- Pagination → `/api/products?page=1&limit=3`
+- Search by name → `/api/products-search?name=laptop`
+- Product stats by category → `/api/products-stats`
+
+### Middleware
+- JSON body parser
+- Custom request logger
+- Validation for POST/PUT requests
+- Global error handler
+
+## 🛠️ Installation & Setup
+
+1. Clone the repository:
+2. Install dependencies:
+3. Start the server:
+
+npm Start
+Server runs on: http://localhost:3000
+
+You can optionally create a `.env` file to set a custom port: `PORT=3000`
+
+## 📦 API Endpoints Documentation
+
+### GET /api/products
+Retrieve all products. Supports filtering and pagination. Example: `/api/products?category=electronics&page=1&limit=2`
+
+### GET /api/products/:id
+Retrieve a specific product by ID. Example: `/api/products/1`
+
+### POST /api/products
+Create a new product. Required JSON body: `{"name": "Tablet", "description": "10-inch tablet", "price": 300, "category": "electronics", "inStock": true}`
+
+### PUT /api/products/:id
+Update an existing product. Example: `/api/products/1` Body: `{"price": 1500, "inStock": false}`
+
+### DELETE /api/products/:id
+Delete a product by ID. Example: `/api/products/2`
+
+### GET /api/products-search
+Search products by name. Example: `/api/products-search?name=laptop`
+
+### GET /api/products-stats
+Returns product count grouped by category. Example output: `{"electronics": 2, "kitchen": 1}`
+
+## 🧪 Testing
+You can test the API using Postman, Insomnia, or curl. Example: `curl http://localhost:3000/api/products`
+
+
